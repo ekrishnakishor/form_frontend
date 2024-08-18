@@ -302,7 +302,7 @@ const AdminDashboard = () => {
           {selectedCompany && (
             <div className="qr-flex-class" ref={qrCodeRef}>
               <QRCode
-                value={`http://127.0.0.1:5173/company/${selectedCompany.short_code}/form/`}
+                value={`https://form-app-1ipz.onrender.com/${selectedCompany.short_code}/form/`}
               />
             </div>
           )}
