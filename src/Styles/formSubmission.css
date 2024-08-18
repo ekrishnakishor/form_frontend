@@ -1,0 +1,88 @@
+/* Main form container */
+.main-container {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Form container styles */
+.form-container {
+  width: 70%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  padding: 4%;
+}
+
+.form-container h1 {
+  text-align: center;
+  color: tomato;
+}
+
+/* Form inputs and labels */
+.form-container input {
+  padding: 3%;
+  margin: 1%;
+  border-radius: 12px;
+}
+
+.form-container label {
+  text-align: left;
+  padding-right: 2%;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Navigation buttons */
+.navigation-buttons {
+  display: flex;
+  gap: 5%;
+  align-items: center;
+}
+
+.navigation-buttons button {
+  margin: 2% 0;
+  border-radius: 10px;
+  padding: 1%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  width: 15vw;
+}
+
+/* Grid container */
+.grid-form-submission {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* @media screen and (max-width: 700px) {
+  .grid-form-submission {
+    flex-direction: column;
+    align-items: center;
+  }
+  .grid-form-submission .MuiGrid-item {
+    flex-basis: 100%;
+  }
+} */
+
+/* Additional form styling */
+.input-label {
+  display: grid;
+  margin: 4% 0;
+}
+
+.input-label label {
+  font-size: 1rem;
+  padding: 0 1%;
+}
+
+.important {
+  color: red;
+}
+
+.form-checkbox {
+  margin: 1% 7%;
+  display: grid;
+  font-size: 1.5rem;
+}

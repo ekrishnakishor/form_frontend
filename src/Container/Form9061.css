@@ -1,0 +1,275 @@
+.form-9061-container {
+  width: 100%;
+}
+
+.form-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-header p {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.form-header .form-9061-left,
+.form-9061-right {
+  display: flex;
+  align-items: center;
+}
+
+.form-header .form-9061-left img {
+  width: 10vw;
+}
+
+.form-header .form-9061-left p span {
+  font-weight: bold;
+}
+
+.form-9061-title {
+  text-align: center;
+}
+
+.form-section {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.form-row {
+  display: table-row;
+}
+
+.form-cell {
+  display: table-cell;
+  padding: 5px;
+  border: 1px solid #000;
+  vertical-align: top;
+}
+
+.control-no,
+.date-received,
+.applicant-name,
+.ssn,
+.worked-before,
+.start-date,
+.starting-wage,
+.job-position {
+  width: 25%;
+  background-color: #e6ecff;
+}
+
+.swa-agency,
+.employer-info,
+.ein {
+  width: 33.33%;
+  background-color: #e6ecff;
+}
+
+.swa-agency {
+  width: 50%;
+  background-color: #d3d3d3;
+  text-align: center;
+}
+
+.employer-name,
+.employer-info,
+.ein {
+  width: 33.33%;
+}
+
+.form-cell p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.form-cell input,
+.form-cell textarea {
+  width: 100%;
+  margin-top: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.form-cell textarea {
+  height: 50px;
+  resize: none;
+}
+
+.form-cell span {
+  font-size: 12px;
+  color: #555;
+}
+
+.radio-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+
+.radio-buttons label {
+  display: flex;
+  align-items: center;
+}
+
+.form-directions-container .form-directions p span {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.form-row-employer,
+.form-row-applicant,
+.form-row-job {
+  display: table-row;
+}
+
+.form-cell-special {
+  display: table-cell;
+  text-align: center;
+  border-left: 1px solid black;
+  background-color: lightblue;
+}
+
+.form-cell-special-1 {
+  border: none;
+  text-align: center;
+  background-color: lightblue;
+  display: table-cell;
+}
+
+.form-cell-special-2 {
+  display: table-cell;
+  text-align: center;
+  border-right: 1px solid black;
+  background-color: lightblue;
+}
+.form-directions-container{
+  border: 1px solid black;
+}
+.form-directions{
+  border-bottom: 1px solid black;
+}
+.form-qualified-recipient{
+  border-bottom: 1px solid black;
+}
+.form-qualified-vetaran{
+  border-bottom: 1px solid black;
+}
+#primary-benefit{
+  border: none;
+  border-bottom: 1px solid black;
+}
+#primary-state{
+  border: none;
+  border-bottom: 1px solid black;
+
+}
+.form-qualified-recipient label,.form-qualified-vetaran label{
+  font-style: italic;
+  font-weight: bold;
+}
+.note{
+  font-style: italic;
+}
+#italic{
+  font-style: italic;
+  font-weight: lighter;
+}
+#q-list-applicable{
+  border: none;
+  border-bottom: 1px solid black;
+}
+#label-date,#label-release{
+  font-weight: bold;
+}
+.qualified-fel{
+  border-bottom: 1px solid black;
+}
+label.jbthday{
+  font-style: italic;
+  font-weight: bold;
+}
+.dcr{
+  border-bottom: 1px solid black;
+}
+.vrr{
+  border-bottom: 1px solid black;
+}
+.vrr label{
+  font-weight: bolder;
+}
+.qsye{
+  border-bottom: 1px solid black;
+}
+.nutrition{
+  border-bottom: 1px solid black;
+}
+.nutrition b{
+  font-style: italic;
+
+}
+
+.nutrition input[type=text]{
+  border: none;
+  border-bottom: 1px solid black;
+}
+.ssi{
+  border-bottom: 1px solid black;
+}
+.long-term{
+  border-bottom: 1px solid black;
+}
+.long-term b{
+  font-style: italic;
+}
+.long-term input[type=text]{
+  border: none;
+  border-bottom: 1px solid black;
+}
+.unemploy{
+  border-bottom: 1px solid black;
+
+}
+.unemploy b{
+  font-style: italic;
+}
+.unemploy input[type=text]{
+  border:none;
+  border-bottom: 1px solid black;
+}
+.doc-eligibility{
+  border-bottom: 1px solid black;
+}
+.doc-eligibility textarea{
+  border: none;
+}
+.certify{
+  border-bottom: 1px solid black;
+}
+
+#sign1{
+  border: none;
+}
+.sign-block{
+  display: flex;
+  border-bottom: 1px solid black;
+  justify-content: space-between;
+}
+.sign-block .box3 textarea{
+  border: none;
+}
+.sign-block .box1,.sign-block .box2{
+  border-right: 1px solid black;
+  padding-left: 1%;
+}
+
+.sign-block .box2{
+  width: 35%;
+  font-size: 1vw;
+}
+.sign-block .box3{
+  padding: 1%;
+}

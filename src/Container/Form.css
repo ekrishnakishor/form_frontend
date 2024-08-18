@@ -1,0 +1,153 @@
+.container {
+  max-width: 90%;
+  margin: 1% auto;
+  padding: 0 20px;
+  /* border: 1px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
+  padding-bottom: 0;
+  background-color: white;
+}
+.form-title {
+  width: 20%;
+}
+.form-title p span {
+  font-size: 2.5em;
+  margin: 0;
+  font-weight: bolder;
+}
+
+.form-title p {
+  margin: 0;
+  text-align: justify;
+}
+
+.form-subtitle {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  text-align: center;
+  width: 50%;
+  padding: 2%;
+}
+
+.form-subtitle h2 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.form-subtitle p {
+  margin: 0;
+}
+
+.instructions {
+  margin: 10px 0;
+  font-size: 0.9em;
+  width: 20%;
+}
+
+.instructions a {
+  color: #000;
+  text-decoration: none;
+}
+.user-instructions {
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.form-group input {
+  flex: 2;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+ul {
+  list-style-type: disc;
+}
+ol li {
+  padding-top: 2%;
+}
+.sign h4 {
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.sign p {
+  font-size: 12px;
+  text-align: left;
+}
+.sign .signature {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+}
+.employer {
+  text-align: justify;
+}
+.employer h4 {
+  text-align: center;
+}
+.employer-use p {
+  font-size: 13px;
+}
+
+.employer input {
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.applicant-info {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 4%;
+  border-bottom: 1px solid black;
+}
+.applicant-info input {
+  border: none;
+  border-bottom: 1px solid black;
+}
+#fine-print {
+  font-size: 13px;
+}
+.applicant .signature {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+}
+.privacy-act {
+  padding-top: 2%;
+  display: flex;
+  gap: 3%;
+  border-bottom: 1px solid black;
+}
+.privacy-act p {
+  text-align: left;
+  font-size: 12px;
+
+}
+@media screen and (max-width: 500px) {
+  .container {
+    font-size: 12px;
+  }
+  ol li {
+    font-size: 13px;
+  }
+}
