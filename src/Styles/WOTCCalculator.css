@@ -35,14 +35,15 @@ input[type="number"] {
 
 .wotc-submit-button,
 .wotc-close-button {
-  padding: 10px 15px;
-  background-color: #007bff;
+  padding: 15px 30px;
+  font-size: 1rem;
   color: white;
+  background-color: #007bff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
-  width: 15vw;
+  text-align: center;
+  width: 50%;
 }
 
 .submit-button:hover,
@@ -72,20 +73,5 @@ input[type="number"] {
   justify-content: center;
   gap: 2%;
 }
-@media (max-width: 900px) {
-  .submit-button,
-  .close-button {
-    font-size: 15px;
-    width: 25vw;
-  
-  }
-}
-@media (max-width: 600px) {
-  .submit-button,
-  .close-button {
-    font-size: 12px;
-    width: 35vw;
-  
-  }
-}
+
 
