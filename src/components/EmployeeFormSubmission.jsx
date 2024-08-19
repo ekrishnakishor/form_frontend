@@ -217,58 +217,69 @@ const EmployeeFormSubmission = () => {
       setOpenSnackbar(true);
       return;
     }
-    console.log(formData);
 
     try {
       const formDataObj = new FormData();
       // for (const key in formData) {
       //   formDataObj.append(key, formData[key]);
       // }
-    const processedFormData = {
-      ...formData,
-      // qualified_snap_recipient: formData.qualified_snap_recipient ?? false,
-      received_conditional_certification: formData.received_conditional_certification ?? false,
-      received_tanf_assistance: formData.received_tanf_assistance ?? false,
-      tanf_benefits_detail: formData.tanf_benefits_detail ?? false,
-      veteran_unemployed_6_months: formData.veteran_unemployed_6_months ?? false,
-      veteran_disabled_recently_discharged: formData.veteran_disabled_recently_discharged ?? false,
-      veteran_disabled_6_months_unemployed: formData.veteran_disabled_6_months_unemployed ?? false,
-      received_tanf_long_term: formData.received_tanf_long_term ?? false,
-      unemployed_27_weeks: formData.unemployed_27_weeks ?? false,
-      discharged_active_duty: formData.discharged_active_duty ?? false,
-      snap_atleat_three_months: formData.snap_atleat_three_months ?? false,
-      unemp_atleat_six_months: formData.unemp_atleat_six_months ?? false,
-      unemp_less_than_six_months: formData.unemp_less_than_six_months ?? false,
-      worked_for_employer_before: formData.worked_for_employer_before ?? false,
-      qualified_iv_a_recipient: formData.qualified_iv_a_recipient ?? false,
-      qualified_veteran: formData.qualified_veteran ?? false,
-      qualified_ex_felon: formData.qualified_ex_felon ?? false,
-      job_app_work_release_program: formData.job_app_work_release_program ?? false,
-      federal_conviction: formData.federal_conviction ?? false,
-      state_conviction: formData.state_conviction ?? false,
-      designated_community_resident_RRC: formData.designated_community_resident_RRC ?? false,
-      designated_community_resident_EZ: formData.designated_community_resident_EZ ?? false,
-      vocational_rehabilitation_referral: formData.vocational_rehabilitation_referral ?? false,
-      rehab_approved_state: formData.rehab_approved_state ?? false,
-      emp_network_work_program: formData.emp_network_work_program ?? false,
-      vet_affairs: formData.vet_affairs ?? false,
-      qualified_summer_youth_employee: formData.qualified_summer_youth_employee ?? false,
-      qualified_snap_recipient: formData.qualified_snap_recipient ?? false,
-      snap_benifits: formData.snap_benifits ?? false,
-      qualified_ssi_recipient: formData.qualified_ssi_recipient ?? false,
-      long_term_family_assistance_recipient: formData.long_term_family_assistance_recipient ?? false,
-      qualified_long_term_unemployment_recipient: formData.qualified_long_term_unemployment_recipient ?? false,
-      signed_employer: formData.signed_employer ?? false,
-      signed_employer_preparer: formData.signed_employer_preparer ?? false,
-      swa: formData.swa ?? false,
-      job_applicant: formData.job_applicant ?? false,
-      parent_gaurdian: formData.parent_gaurdian ?? false,
-    };
+      const processedFormData = {
+        ...formData,
+        // qualified_snap_recipient: formData.qualified_snap_recipient ?? false,
+        received_conditional_certification:
+          formData.received_conditional_certification ?? false,
+        received_tanf_assistance: formData.received_tanf_assistance ?? false,
+        tanf_benefits_detail: formData.tanf_benefits_detail ?? false,
+        veteran_unemployed_6_months:
+          formData.veteran_unemployed_6_months ?? false,
+        veteran_disabled_recently_discharged:
+          formData.veteran_disabled_recently_discharged ?? false,
+        veteran_disabled_6_months_unemployed:
+          formData.veteran_disabled_6_months_unemployed ?? false,
+        received_tanf_long_term: formData.received_tanf_long_term ?? false,
+        unemployed_27_weeks: formData.unemployed_27_weeks ?? false,
+        discharged_active_duty: formData.discharged_active_duty ?? false,
+        snap_atleat_three_months: formData.snap_atleat_three_months ?? false,
+        unemp_atleat_six_months: formData.unemp_atleat_six_months ?? false,
+        unemp_less_than_six_months:
+          formData.unemp_less_than_six_months ?? false,
+        worked_for_employer_before:
+          formData.worked_for_employer_before ?? false,
+        qualified_iv_a_recipient: formData.qualified_iv_a_recipient ?? false,
+        qualified_veteran: formData.qualified_veteran ?? false,
+        qualified_ex_felon: formData.qualified_ex_felon ?? false,
+        job_app_work_release_program:
+          formData.job_app_work_release_program ?? false,
+        federal_conviction: formData.federal_conviction ?? false,
+        state_conviction: formData.state_conviction ?? false,
+        designated_community_resident_RRC:
+          formData.designated_community_resident_RRC ?? false,
+        designated_community_resident_EZ:
+          formData.designated_community_resident_EZ ?? false,
+        vocational_rehabilitation_referral:
+          formData.vocational_rehabilitation_referral ?? false,
+        rehab_approved_state: formData.rehab_approved_state ?? false,
+        emp_network_work_program: formData.emp_network_work_program ?? false,
+        vet_affairs: formData.vet_affairs ?? false,
+        qualified_summer_youth_employee:
+          formData.qualified_summer_youth_employee ?? false,
+        qualified_snap_recipient: formData.qualified_snap_recipient ?? false,
+        snap_benifits: formData.snap_benifits ?? false,
+        qualified_ssi_recipient: formData.qualified_ssi_recipient ?? false,
+        long_term_family_assistance_recipient:
+          formData.long_term_family_assistance_recipient ?? false,
+        qualified_long_term_unemployment_recipient:
+          formData.qualified_long_term_unemployment_recipient ?? false,
+        signed_employer: formData.signed_employer ?? false,
+        signed_employer_preparer: formData.signed_employer_preparer ?? false,
+        swa: formData.swa ?? false,
+        job_applicant: formData.job_applicant ?? false,
+        parent_gaurdian: formData.parent_gaurdian ?? false,
+      };
 
-    for (const key in processedFormData) {
-      formDataObj.append(key, processedFormData[key]);
-    }
-
+      for (const key in processedFormData) {
+        formDataObj.append(key, processedFormData[key]);
+      }
 
       const response = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/company/${short_Code}/form/`,
@@ -284,10 +295,10 @@ const EmployeeFormSubmission = () => {
         setSnackbarMessage("Form submitted successfully!");
         setOpenSnackbar(true);
         // Redirect to the home page after successful submission
-              // Wait for 3 seconds before redirecting
-      setTimeout(() => {
-        navigate("/");
-      }, 3000);
+        // Wait for 3 seconds before redirecting
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
         // Reset form data
         setFormData({
           name: "",

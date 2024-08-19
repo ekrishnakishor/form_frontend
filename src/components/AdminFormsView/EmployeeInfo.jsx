@@ -28,7 +28,6 @@ const EmployeeInfo = ({company,employeeDetails}) => {
         ? true
         : false;
     }
-    console.log(employeeDetails,"employeeDetails")
   return (
     <>
       <Typography variant="h4" align="center" gutterBottom>

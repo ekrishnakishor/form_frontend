@@ -9,7 +9,6 @@ import {
 import SubmissionView from "./SubmissionView";
 
 const Submission = ({ isOpen, selectedCompany, onClose }) => {
-  console.log(selectedCompany);
   return (
     <Dialog
       open={isOpen}

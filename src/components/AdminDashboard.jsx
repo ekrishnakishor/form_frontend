@@ -200,7 +200,7 @@ const AdminDashboard = () => {
           const imgWidth = 250; // Adjust the width as needed
           const imgHeight = 100; // Adjust the height as needed
 
-          pdf.addImage(imgData, "PNG", 50, 50, imgWidth, imgHeight);
+          pdf.addImage(imgData, "PNG", -20 , 30, imgWidth, imgHeight);
           pdf.text(
             `QR Code for Submission of Company${selectedCompany.short_code}`,
             10,

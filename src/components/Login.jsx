@@ -22,8 +22,7 @@ const Login = () => {
       );
       const { access, refresh } = response.data;
 
-      console.log("access", access);
-      console.log("refresh", refresh);
+    
 
       localStorage.setItem("token", access);
       localStorage.setItem("refresh_token", refresh);
