@@ -14,6 +14,8 @@ import {
   DialogContent,
   DialogTitle,
   TextField,
+  Snackbar,
+  Alert
 } from "@mui/material";
 import QRCode from "qrcode.react";
 import jsPDF from "jspdf";
@@ -31,9 +33,13 @@ const AdminDashboard = () => {
   const [reportOpen, setReportOpen] = useState(false);
   const [viewOpen, setViewOpen] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState(null);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [dateRange, setDateRange] = useState({ from: "", to: "" });
   const navigate = useNavigate();
   const qrCodeRef = useRef(null);
+
+
 
   const fetchData = async () => {
     try {
@@ -65,6 +71,12 @@ const AdminDashboard = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (error) {
+      navigate('/login');
+    }
+  }, [error, navigate]);
 
   useEffect(() => {
     fetchData();
@@ -175,12 +187,11 @@ const AdminDashboard = () => {
 
   const handleCopyLink = () => {
     if (selectedCompany) {
-      const link = `${import.meta.env.VITE_CLIENT_BASE_URL}/company/${
-        selectedCompany.short_code
-      }/form/`;
+      const link = `${import.meta.env.VITE_CLIENT_BASE_URL}/AmazonDSP/${selectedCompany.short_code}/8850/`;
       navigator.clipboard.writeText(link).then(
         () => {
-          alert("Link copied to clipboard!");
+          setSnackbarMessage("Link copied to clipboard!");
+          setOpenSnackbar(true);
         },
         (err) => {
           console.error("Failed to copy link: ", err);
@@ -212,6 +223,13 @@ const AdminDashboard = () => {
           console.error("Error capturing QR Code", error);
         });
     }
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenSnackbar(false);
   };
 
   return (
@@ -302,7 +320,8 @@ const AdminDashboard = () => {
           {selectedCompany && (
             <div className="qr-flex-class" ref={qrCodeRef}>
               <QRCode
-                value={`https://form-app-1ipz.onrender.com/${selectedCompany.short_code}/form/`}
+                //value={`https://form-app-1ipz.onrender.com/AmazonDSP/${selectedCompany.short_code}/8850/`}
+                value = {`${import.meta.env.VITE_CLIENT_BASE_URL}/AmazonDSP/${selectedCompany.short_code}/8850/`}
               />
             </div>
           )}
@@ -317,6 +336,15 @@ const AdminDashboard = () => {
           <Button onClick={handleLinkandQROpenClose} color="primary">
             Cancel
           </Button>
+          <Snackbar
+          open={openSnackbar}
+          autoHideDuration={6000}
+          onClose={handleCloseSnackbar}
+        >
+          <Alert onClose={handleCloseSnackbar} severity="info">
+            {snackbarMessage}
+          </Alert>
+        </Snackbar>
         </DialogActions>
       </Dialog>
 

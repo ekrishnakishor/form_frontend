@@ -7,6 +7,7 @@ import { Alert } from "@material-ui/lab";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import emailjs from "emailjs-com";
 import "../Styles/formSubmission.css";
 
 const EmployeeFormSubmission = () => {
@@ -154,14 +155,34 @@ const EmployeeFormSubmission = () => {
         }
         break;
       case "email":
-        if (stringValue && !/\S+@\S+\.\S+/.test(stringValue)) {
+        if (!stringValue) {
+          fieldErrors[fieldName] = "Email is required";
+        }
+        else if (stringValue && !/\S+@\S+\.\S+/.test(stringValue)) {
           fieldErrors[fieldName] = "Invalid email format";
         }
         break;
       case "date_of_birth":
+        if (!stringValue) {
+          fieldErrors[fieldName] = "Date of Birth is required is required";
+        }
+        else if (stringValue && !isValidDate(stringValue)) {
+          fieldErrors[fieldName] = "Invalid date";
+        }
+        break;
       case "emp_start_date":
+        if (!stringValue) {
+          fieldErrors[fieldName] = "Employee Start Date is required";
+        }
+        else if (stringValue && !isValidDate(stringValue)) {
+          fieldErrors[fieldName] = "Invalid date";
+        }
+        break;
       case "date_applied_job":
-        if (stringValue && !isValidDate(stringValue)) {
+        if (!stringValue) {
+          fieldErrors[fieldName] = "Date applied is required";
+        }
+        else if (stringValue && !isValidDate(stringValue)) {
           fieldErrors[fieldName] = "Invalid date";
         }
         break;
@@ -282,7 +303,7 @@ const EmployeeFormSubmission = () => {
       }
 
       const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/company/${short_Code}/form/`,
+        `${import.meta.env.VITE_API_BASE_URL}/AmazonDSP/${short_Code}/8850/`,
         formDataObj,
         {
           headers: {
@@ -294,6 +315,32 @@ const EmployeeFormSubmission = () => {
       if (response.status === 201) {
         setSnackbarMessage("Form submitted successfully!");
         setOpenSnackbar(true);
+
+              // Send email using emailjs
+      const templateParams = {
+       
+        to_name: "Sarar Agarwal", 
+        from_name: "wotcbiz.com", 
+        message: `Name: ${formData.name}, Email: ${formData.email}, Phone Number: ${formData.telephone}`, 
+      };
+
+      emailjs
+      .send(
+        "service_e7j9lug", // service ID
+        "template_6jyloyb", // template ID
+        templateParams,
+        "6Q7nUa-NZ72mkT9JT" // user ID
+      )
+        .then(
+          (response) => {
+            console.log("SUCCESS!", response.status, response.text);
+            setSubmitted(true);
+            setIsModalOpen(false);
+          },
+          (error) => {
+            console.log("FAILED...", error);
+          }
+        );
         // Redirect to the home page after successful submission
         // Wait for 3 seconds before redirecting
         setTimeout(() => {

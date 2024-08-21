@@ -36,7 +36,7 @@ const AppRouter = () => (
                     </PrivateRoute>
                 }
             />
-             <Route path="/company/:short_Code/form" element={<EmployeeFormSubmission />} />
+             <Route path="/AmazonDSP/:short_Code/8850" element={<EmployeeFormSubmission />} />
              {/* <Route path="/form" element={<Form8850 />} /> */}
         </Routes>
     </Router>

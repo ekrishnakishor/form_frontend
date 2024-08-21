@@ -21,9 +21,6 @@ const Login = () => {
         }
       );
       const { access, refresh } = response.data;
-
-    
-
       localStorage.setItem("token", access);
       localStorage.setItem("refresh_token", refresh);
       navigate("/admin");
