@@ -319,17 +319,18 @@ const EmployeeFormSubmission = () => {
 
         // Send email using emailjs
         const templateParams = {
-          to_name: "Sarar Agarwal",
+          to_name: "Sagar Aggarwal",
           from_name: "wotcbiz.com",
+          short_code: `${short_Code}`,
           message: `Name: ${formData.name}, Email: ${formData.email}, Phone Number: ${formData.telephone}`,
         };
 
         emailjs
           .send(
-            "service_e7j9lug", // service ID
-            "template_6jyloyb", // template ID
+            "service_xva9qdv", // service ID
+            "template_88pawh8", // template ID
             templateParams,
-            "6Q7nUa-NZ72mkT9JT" // user ID
+            "mlLd8nCbOXAuFpnSF" // user ID
           )
           .then(
             (response) => {

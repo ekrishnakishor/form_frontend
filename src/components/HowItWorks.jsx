@@ -71,9 +71,9 @@ const HowItWorks = () => {
       emailjs
         .send(
           "service_e7j9lug", // service ID
-          "template_6jyloyb", // template ID
+          "template_n7vitw7", // template ID
           templateParams,
-          "6Q7nUa-NZ72mkT9JT" // user ID
+          "mlLd8nCbOXAuFpnSF" // user ID
         )
         .then(
           (response) => {
