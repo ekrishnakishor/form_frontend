@@ -157,32 +157,28 @@ const EmployeeFormSubmission = () => {
       case "email":
         if (!stringValue) {
           fieldErrors[fieldName] = "Email is required";
-        }
-        else if (stringValue && !/\S+@\S+\.\S+/.test(stringValue)) {
+        } else if (stringValue && !/\S+@\S+\.\S+/.test(stringValue)) {
           fieldErrors[fieldName] = "Invalid email format";
         }
         break;
       case "date_of_birth":
         if (!stringValue) {
           fieldErrors[fieldName] = "Date of Birth is required is required";
-        }
-        else if (stringValue && !isValidDate(stringValue)) {
+        } else if (stringValue && !isValidDate(stringValue)) {
           fieldErrors[fieldName] = "Invalid date";
         }
         break;
       case "emp_start_date":
         if (!stringValue) {
           fieldErrors[fieldName] = "Employee Start Date is required";
-        }
-        else if (stringValue && !isValidDate(stringValue)) {
+        } else if (stringValue && !isValidDate(stringValue)) {
           fieldErrors[fieldName] = "Invalid date";
         }
         break;
       case "date_applied_job":
         if (!stringValue) {
           fieldErrors[fieldName] = "Date applied is required";
-        }
-        else if (stringValue && !isValidDate(stringValue)) {
+        } else if (stringValue && !isValidDate(stringValue)) {
           fieldErrors[fieldName] = "Invalid date";
         }
         break;
@@ -244,6 +240,10 @@ const EmployeeFormSubmission = () => {
       // for (const key in formData) {
       //   formDataObj.append(key, formData[key]);
       // }
+      const pstDate = new Date().toLocaleString("en-US", {
+        timeZone: "America/Los_Angeles",
+      });
+      const currentDate = new Date(pstDate).toISOString().split("T")[0]; // Format as YYYY-MM-DD
       const processedFormData = {
         ...formData,
         // qualified_snap_recipient: formData.qualified_snap_recipient ?? false,
@@ -296,6 +296,7 @@ const EmployeeFormSubmission = () => {
         swa: formData.swa ?? false,
         job_applicant: formData.job_applicant ?? false,
         parent_gaurdian: formData.parent_gaurdian ?? false,
+        date_signed: currentDate.toString() ?? "",
       };
 
       for (const key in processedFormData) {
@@ -316,31 +317,30 @@ const EmployeeFormSubmission = () => {
         setSnackbarMessage("Form submitted successfully!");
         setOpenSnackbar(true);
 
-              // Send email using emailjs
-      const templateParams = {
-       
-        to_name: "Sarar Agarwal", 
-        from_name: "wotcbiz.com", 
-        message: `Name: ${formData.name}, Email: ${formData.email}, Phone Number: ${formData.telephone}`, 
-      };
+        // Send email using emailjs
+        const templateParams = {
+          to_name: "Sarar Agarwal",
+          from_name: "wotcbiz.com",
+          message: `Name: ${formData.name}, Email: ${formData.email}, Phone Number: ${formData.telephone}`,
+        };
 
-      emailjs
-      .send(
-        "service_e7j9lug", // service ID
-        "template_6jyloyb", // template ID
-        templateParams,
-        "6Q7nUa-NZ72mkT9JT" // user ID
-      )
-        .then(
-          (response) => {
-            console.log("SUCCESS!", response.status, response.text);
-            setSubmitted(true);
-            setIsModalOpen(false);
-          },
-          (error) => {
-            console.log("FAILED...", error);
-          }
-        );
+        emailjs
+          .send(
+            "service_e7j9lug", // service ID
+            "template_6jyloyb", // template ID
+            templateParams,
+            "6Q7nUa-NZ72mkT9JT" // user ID
+          )
+          .then(
+            (response) => {
+              console.log("SUCCESS!", response.status, response.text);
+              setSubmitted(true);
+              setIsModalOpen(false);
+            },
+            (error) => {
+              console.log("FAILED...", error);
+            }
+          );
         // Redirect to the home page after successful submission
         // Wait for 3 seconds before redirecting
         setTimeout(() => {
